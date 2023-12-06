@@ -1,7 +1,8 @@
-﻿using System.IO;
+using System.IO;
 using ClosedXML.Excel;
 using Aspose.Cells;
 using System.Linq.Expressions;
+using DocumentFormat.OpenXml.Office2013.Excel;
 
 namespace WinFormsApp6
 {
@@ -181,8 +182,7 @@ namespace WinFormsApp6
                 worksheet.Cell("L" + 7).Value = x2;
                 worksheet.Cell("M" + 7).Value = y2;
                 worksheet.Cell("N" + 7).Value = "k =";
-                if (textBox2.Text != "0" && textBox5.Text != "0")
-                    worksheet.Cell("O" + 7).Value = "(" + y1 * z2 + " - " + z1 * y2 + ") - (" + x1 * z2 + " - " + z1 * x2 + ") + (" + x1 * y2 + " - " + y1 * x2 + ") = " + vectoranswer1 + " - " + vectoranswer2 + " + " + vectoranswer3;
+                worksheet.Cell("O" + 7).Value = "(" + y1 * z2 + " - " + z1 * y2 + ") - (" + x1 * z2 + " - " + z1 * x2 + ") + (" + x1 * y2 + " - " + y1 * x2 + ") = " + vectoranswer1 + " ; " + vectoranswer2 + " ; " + vectoranswer3;
                 worksheet.Cell("B" + 8).Value = x2;
                 worksheet.Cell("C" + 8).Value = y2;
                 worksheet.Cell("D" + 8).Value = z2;
@@ -253,6 +253,7 @@ namespace WinFormsApp6
             textBox5.Text = "";
             textBox6.Text = "";
             label9.Text = "";
+            vector = false; scalar = false;          
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
